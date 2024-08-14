@@ -39,7 +39,6 @@ const products = [
 export default function Cart() {
   const count = useSelector(selectCount);
   const dispatch = useDispatch();
-  const [open, setOpen] = useState(true)
 
   return (
     <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -65,7 +64,7 @@ export default function Cart() {
                       </h3>
                       <p className="ml-4">{product.price}</p>
                     </div>
-                    <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                    <p className="mt-1 text-sm text-gray-500 text-left">{product.color}</p>
                   </div>
                   <div className="flex flex-1 items-end justify-between text-sm">
                     <div className="text-gray-500">
@@ -96,14 +95,14 @@ export default function Cart() {
           <p>Subtotal</p>
           <p>$262.00</p>
         </div>
-        <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+        <p className="mt-0.5 text-sm text-gray-500 text-left">Shipping and taxes calculated at checkout.</p>
         <div className="mt-6">
-          <a
-            href="#"
+          <Link
+            to={'/checkout'}
             className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
           >
             Checkout
-          </a>
+          </Link>
         </div>
         <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
           <p>
@@ -111,7 +110,6 @@ export default function Cart() {
             <Link to={'/'}>
             <button
               type="button"
-              onClick={() => setOpen(false)}
               className="font-medium text-indigo-600 hover:text-indigo-500"
             >
               Continue Shopping
