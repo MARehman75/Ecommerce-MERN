@@ -11,11 +11,18 @@ export const fetchAllProducts = async () => {
   }
 }
 
-export const fetchProductsByFilters = async (filter) => {
+export const fetchProductsByFilters = async (filter, sort) => {
 
   let queryString = ''
   for(let key in filter){
-    queryString += `${key}=${filter[key]}&`
+    const categoryValues = filter[key]
+    if(categoryValues.length){
+    const lastCatrgoryValue = categoryValues[categoryValues.length-1]
+    queryString += `${key}=${lastCatrgoryValue}&`
+    }
+  }
+  for(let key in sort){
+    queryString += `${key}=${sort[key]}&`
   }
 
   try {

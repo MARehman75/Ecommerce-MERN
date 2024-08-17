@@ -62,26 +62,38 @@ export default function ProductList() {
   const dispatch = useDispatch();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [filter, setFilter] = useState({})
+  const [sort, setSort] = useState({})
 
 
   const handleFilter = (e, section, option) => {
-    const newFilter = { ...filter, [section.id]: option.value }
-    // console.log('Updated filter:', newFilter);
+    const newFilter = { ...filter }
+    if (e.target.checked) {
+      if (newFilter[section.id]) {
+        newFilter[section.id].push(option.value)
+      }
+      else {
+        newFilter[section.id] = [option.value]
+      }
+    }
+    else {
+      const index = newFilter[section.id].findIndex(el => el === option.value)
+      newFilter[section.id].splice(index, 1)
+    }
+    console.log({ newFilter })
     setFilter(newFilter)
-    dispatch(fetchProductsByFiltersAsync(newFilter))
-    console.log(section.id, option.value)
   }
 
   const handleSort = (e, option) => {
-    const newFilter = { ...filter, _sort: option.sort, _order: option.order }
-    setFilter(newFilter)
-    dispatch(fetchProductsByFiltersAsync(newFilter))
+    const sort = { _sort: option.sort, _order: option.order }
+    console.log({ sort })
+    setFilter(sort)
   }
 
 
   useEffect(() => {
-    dispatch(fetchAllProductsAsync())
-  }, [dispatch])
+    // dispatch(fetchAllProductsAsync())
+    dispatch(fetchProductsByFiltersAsync({ filter, sort }))
+  }, [dispatch, filter, sort])
 
 
   return (
@@ -90,7 +102,7 @@ export default function ProductList() {
       <div className="bg-white">
         <div>
           {/* Mobile filter dialog */}
-          <MobileFilter mobileFiltersOpen={mobileFiltersOpen} setMobileFiltersOpen={setMobileFiltersOpen} handleFilter={handleFilter}/>
+          <MobileFilter mobileFiltersOpen={mobileFiltersOpen} setMobileFiltersOpen={setMobileFiltersOpen} handleFilter={handleFilter} />
 
           <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
@@ -155,7 +167,7 @@ export default function ProductList() {
                 <DesktopFilter handleFilter={handleFilter} />
 
                 {/* Product grid */}
-                <ProductGrid products={products}/>
+                <ProductGrid products={products} />
               </div>
             </section>
             {/* Pagination */}
@@ -168,7 +180,7 @@ export default function ProductList() {
 }
 
 
-const MobileFilter = ({mobileFiltersOpen, setMobileFiltersOpen, handleFilter}) => {
+const MobileFilter = ({ mobileFiltersOpen, setMobileFiltersOpen, handleFilter }) => {
   return (
     <Dialog open={mobileFiltersOpen} onClose={setMobileFiltersOpen} className="relative z-40 lg:hidden">
       <DialogBackdrop
@@ -240,7 +252,7 @@ const MobileFilter = ({mobileFiltersOpen, setMobileFiltersOpen, handleFilter}) =
 }
 
 
-const DesktopFilter = ({handleFilter}) => {
+const DesktopFilter = ({ handleFilter }) => {
   return (
     <form className="hidden lg:block">
 
@@ -282,7 +294,7 @@ const DesktopFilter = ({handleFilter}) => {
 }
 
 
-const ProductGrid = ({products}) => {
+const ProductGrid = ({ products }) => {
   return (
     <div className="lg:col-span-3">
 
