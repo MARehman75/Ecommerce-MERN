@@ -11,7 +11,7 @@ export const fetchAllProducts = async () => {
   }
 }
 
-export const fetchProductsByFilters = async (filter, sort) => {
+export const fetchProductsByFilters = async (filter, sort, pagination) => {
 
   let queryString = ''
   for(let key in filter){
@@ -24,10 +24,15 @@ export const fetchProductsByFilters = async (filter, sort) => {
   for(let key in sort){
     queryString += `${key}=${sort[key]}&`
   }
+  for(let key in pagination){
+    queryString += `${key}=${pagination[key]}&`
+  }
 
   try {
     const response = await fetch('http://localhost:8080/products?'+queryString)
     const data = await response.json()
+    // const totalItems = await response.headers.get('X-Total_count')
+    // return({data:{products: data, totalItems: +totalItems}})
     return({data})
   }
   catch (error) {
@@ -35,3 +40,32 @@ export const fetchProductsByFilters = async (filter, sort) => {
     throw error;
   }
 }
+
+//THIS LOGIC IS BETTER BUT NOT IMPLEMENTED BY CODER DOST - IT ACTUALLY SHOWS MULTIPLE FILTERS
+
+// export const fetchProductsByFilters = async (filter, sort) => {
+//     let queryString = '';
+
+//     // Constructing the query string for filters
+//     for (let key in filter) {
+//         const filterValues = filter[key];
+//         if (filterValues.length) {
+//             queryString += filterValues.map(value => `${key}=${encodeURIComponent(value)}`).join('&') + '&';
+//         }
+//     }
+
+//     // Adding sorting to the query string
+//     for (let key in sort) {
+//         queryString += `${key}=${encodeURIComponent(sort[key])}&`;
+//     }
+
+//     try {
+//         const response = await fetch('http://localhost:8080/products?' + queryString.slice(0, -1));
+//         const data = await response.json();
+//         return { data };
+//     } catch (error) {
+//         console.error('Error fetching data:', error);
+//         throw error;
+//     }
+// };
+
