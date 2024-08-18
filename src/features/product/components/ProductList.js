@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProductsByFiltersAsync, selectAllProducts } from '../productSlice';
+import { fetchProductsByFiltersAsync, selectAllProducts, selectTotalItems } from '../productSlice';
 
 import {
   Dialog,
@@ -60,6 +60,7 @@ function classNames(...classes) {
 
 export default function ProductList() {
   const products = useSelector(selectAllProducts);
+  const totalItems = useSelector(selectTotalItems);
   const dispatch = useDispatch();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [filter, setFilter] = useState({})
@@ -115,7 +116,7 @@ export default function ProductList() {
     setSort(sort)
   }
 
-  const handlePage = ( page) => {
+  const handlePage = (page) => {
     console.log({ page })
     setPage(page)
   }
@@ -125,6 +126,10 @@ export default function ProductList() {
     const pagination = { _page: page, _limit: ITEM_PER_PAGE }
     dispatch(fetchProductsByFiltersAsync({ filter, sort, pagination }))
   }, [dispatch, filter, sort, page])
+
+  useEffect(()=>{
+    setPage(1)
+  },[totalItems, sort])
 
 
   return (
@@ -202,7 +207,7 @@ export default function ProductList() {
               </div>
             </section>
             {/* Pagination */}
-            <Pagination page={page} setPage={setPage} handlePage={handlePage} />
+            <Pagination page={page} setPage={setPage} handlePage={handlePage} totalItems={totalItems} />
           </main>
         </div>
       </div>
@@ -371,7 +376,7 @@ const ProductGrid = ({ products }) => {
 }
 
 
-const Pagination = ({ page, setPage, handlePage, totalItems = 55 }) => {
+const Pagination = ({ page, setPage, handlePage, totalItems }) => {
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
@@ -391,7 +396,7 @@ const Pagination = ({ page, setPage, handlePage, totalItems = 55 }) => {
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>
           <p className="text-sm text-gray-700">
-            Showing <span className="font-medium">{(page - 1) * ITEM_PER_PAGE + 1}</span> to <span className="font-medium">{page * ITEM_PER_PAGE}</span> of{' '}
+            Showing <span className="font-medium">{(page - 1) * ITEM_PER_PAGE + 1}</span> to <span className="font-medium">{page * ITEM_PER_PAGE > totalItems ? totalItems : page * ITEM_PER_PAGE}</span> of{' '}
             <span className="font-medium">{totalItems}</span> results
           </p>
         </div>
@@ -410,7 +415,7 @@ const Pagination = ({ page, setPage, handlePage, totalItems = 55 }) => {
                 <div
                   onClick={() => handlePage(index + 1)}
                   aria-current="page"
-                  className={`relative z-10 cursor-pointer inline-flex items-center ${index + 1 === page ? 'bg-indigo-600 text-white'  : 'text-gray-400'}  px-4 py-2 text-sm font-semibold  focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
+                  className={`relative z-10 cursor-pointer inline-flex items-center ${index + 1 === page ? 'bg-indigo-600 text-white' : 'text-gray-400'}  px-4 py-2 text-sm font-semibold  focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
                 >
                   {index + 1}
                 </div>

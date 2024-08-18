@@ -31,9 +31,8 @@ export const fetchProductsByFilters = async (filter, sort, pagination) => {
   try {
     const response = await fetch('http://localhost:8080/products?'+queryString)
     const data = await response.json()
-    // const totalItems = await response.headers.get('X-Total_count')
-    // return({data:{products: data, totalItems: +totalItems}})
-    return({data})
+    const totalItems = await response.headers.get('X-Total-Count')
+    return({data:{products: data, totalItems: +totalItems}})
   }
   catch (error) {
     console.error('Error fetching data:', error);
