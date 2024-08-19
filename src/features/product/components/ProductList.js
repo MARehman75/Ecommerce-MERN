@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProductsByFiltersAsync, selectAllProducts, selectTotalItems } from '../productSlice';
+import { fetchBrandsAsync, fetchCategoriesAsync, fetchProductsByFiltersAsync, selectAllProducts, selectBrands, selectCategories, selectTotalItems } from '../productSlice';
 
 import {
   Dialog,
@@ -26,32 +26,7 @@ const sortOptions = [
   { name: 'Price: High to Low', sort: 'price', order: 'desc', current: false },
 ]
 
-const filters = [
-  {
-    id: 'category',
-    name: 'Category',
-    options: [
-      { value: 'smartphones', label: 'smartphones', checked: false },
-      { value: 'laptops', label: 'laptops', checked: false },
-      { value: 'fragrances', label: 'fragrances', checked: false },
-      { value: 'skincare', label: 'skincare', checked: false },
-      { value: 'groceries', label: 'groceries', checked: false },
-      { value: 'home-decoration', label: 'home decoration', checked: false },
-    ],
-  },
-  {
-    id: 'brands',
-    name: 'Brands',
-    options: [
-      { value: 'Apple', label: 'Apple', checked: false },
-      { value: 'Samsung', label: 'Samsung', checked: false },
-      { value: 'OPPO', label: 'OPPO', checked: false },
-      { value: 'Huawei', label: 'Huawei', checked: false },
-      { value: 'Microsoft Surface', label: 'Microsoft Surface', checked: false },
-      { value: 'Infinix', label: 'Infinix', checked: false },
-    ],
-  },
-]
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -60,12 +35,44 @@ function classNames(...classes) {
 
 export default function ProductList() {
   const products = useSelector(selectAllProducts);
+  const categories = useSelector(selectCategories);
+  const brands = useSelector(selectBrands);
   const totalItems = useSelector(selectTotalItems);
   const dispatch = useDispatch();
+
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [filter, setFilter] = useState({})
   const [sort, setSort] = useState({})
   const [page, setPage] = useState(1)
+
+  const filters = [
+    {
+      id: 'category',
+      name: 'Category',
+      options: categories
+      // [
+      //   { value: 'smartphones', label: 'smartphones', checked: false },
+      //   { value: 'laptops', label: 'laptops', checked: false },
+      //   { value: 'fragrances', label: 'fragrances', checked: false },
+      //   { value: 'skincare', label: 'skincare', checked: false },
+      //   { value: 'groceries', label: 'groceries', checked: false },
+      //   { value: 'home-decoration', label: 'home decoration', checked: false },
+      // ],
+    },
+    {
+      id: 'brands',
+      name: 'Brands',
+      options: brands
+      // [
+      //   { value: 'Apple', label: 'Apple', checked: false },
+      //   { value: 'Samsung', label: 'Samsung', checked: false },
+      //   { value: 'OPPO', label: 'OPPO', checked: false },
+      //   { value: 'Huawei', label: 'Huawei', checked: false },
+      //   { value: 'Microsoft Surface', label: 'Microsoft Surface', checked: false },
+      //   { value: 'Infinix', label: 'Infinix', checked: false },
+      // ],
+    },
+  ]
 
 
   // const handleFilter = (e, section, option) => {
@@ -127,9 +134,15 @@ export default function ProductList() {
     dispatch(fetchProductsByFiltersAsync({ filter, sort, pagination }))
   }, [dispatch, filter, sort, page])
 
-  useEffect(()=>{
+  useEffect(() => {
     setPage(1)
-  },[totalItems, sort])
+  }, [totalItems, sort])
+
+  useEffect(() => {
+    dispatch(fetchCategoriesAsync())
+    dispatch(fetchBrandsAsync())
+  }, [])
+
 
 
   return (
@@ -138,7 +151,7 @@ export default function ProductList() {
       <div className="bg-white">
         <div>
           {/* Mobile filter dialog */}
-          <MobileFilter mobileFiltersOpen={mobileFiltersOpen} setMobileFiltersOpen={setMobileFiltersOpen} handleFilter={handleFilter} />
+          <MobileFilter mobileFiltersOpen={mobileFiltersOpen} setMobileFiltersOpen={setMobileFiltersOpen} handleFilter={handleFilter} filters={filters} />
 
           <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
@@ -200,7 +213,7 @@ export default function ProductList() {
 
               <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                 {/* Desktop Filters */}
-                <DesktopFilter handleFilter={handleFilter} />
+                <DesktopFilter handleFilter={handleFilter} filters={filters} />
 
                 {/* Product grid */}
                 <ProductGrid products={products} />
@@ -216,7 +229,7 @@ export default function ProductList() {
 }
 
 
-const MobileFilter = ({ mobileFiltersOpen, setMobileFiltersOpen, handleFilter }) => {
+const MobileFilter = ({ mobileFiltersOpen, setMobileFiltersOpen, handleFilter, filters }) => {
   return (
     <Dialog open={mobileFiltersOpen} onClose={setMobileFiltersOpen} className="relative z-40 lg:hidden">
       <DialogBackdrop
@@ -288,7 +301,7 @@ const MobileFilter = ({ mobileFiltersOpen, setMobileFiltersOpen, handleFilter })
 }
 
 
-const DesktopFilter = ({ handleFilter }) => {
+const DesktopFilter = ({ handleFilter, filters }) => {
   return (
     <form className="hidden lg:block">
 
@@ -377,18 +390,19 @@ const ProductGrid = ({ products }) => {
 
 
 const Pagination = ({ page, setPage, handlePage, totalItems }) => {
+  const totalPages = Math.ceil(totalItems / ITEM_PER_PAGE)
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
         <div
-          href="#"
-          className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+          onClick={() => handlePage(page > 1 ? page - 1 : page)}
+          className="relative inline-flex cursor-pointer items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
         >
           Previous
         </div>
         <div
-          href="#"
-          className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+          onClick={() => handlePage(page < totalPages ? page + 1 : page)}
+          className="relative ml-3 inline-flex cursor-pointer items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
         >
           Next
         </div>
@@ -403,14 +417,14 @@ const Pagination = ({ page, setPage, handlePage, totalItems }) => {
         <div>
           <nav aria-label="Pagination" className="isolate inline-flex -space-x-px rounded-md shadow-sm">
             <div
-              href="#"
+              onClick={() => handlePage(page > 1 ? page - 1 : page)}
               className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
             >
               <span className="sr-only">Previous</span>
               <ChevronLeftIcon aria-hidden="true" className="h-5 w-5" />
             </div>
             {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
-            {Array.from({ length: Math.ceil(totalItems / ITEM_PER_PAGE) }).map(
+            {Array.from({ length: totalPages }).map(
               (el, index) => (
                 <div
                   onClick={() => handlePage(index + 1)}
@@ -423,7 +437,7 @@ const Pagination = ({ page, setPage, handlePage, totalItems }) => {
 
 
             <div
-              href="#"
+              onClick={() => handlePage(page < totalPages ? page + 1 : page)}
               className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
             >
               <span className="sr-only">Next</span>
