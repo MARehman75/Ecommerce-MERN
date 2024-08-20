@@ -10,12 +10,11 @@
             "stock": 0,
             "brand": "Apple",
             "category": "smartphones",
-            "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+            "thumbnail": "https://cdn2.gsmarena.com/vv/bigpic/apple-iphone-11.jpg",
             "images": [
-                "https://i.dummyjson.com/data/products/1/1.jpg",
-                "https://i.dummyjson.com/data/products/1/2.jpg",
-                "https://i.dummyjson.com/data/products/1/3.jpg",
-                "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+                "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-1.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-2.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-3.jpg"
             ],
             "deleted": true
         },
@@ -29,12 +28,11 @@
             "stock": 34,
             "brand": "Apple",
             "category": "smartphones",
-            "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+            "thumbnail": "https://cdn2.gsmarena.com/vv/bigpic/apple-iphone-x.jpg",
             "images": [
-                "https://i.dummyjson.com/data/products/2/1.jpg",
-                "https://i.dummyjson.com/data/products/2/2.jpg",
-                "https://i.dummyjson.com/data/products/2/3.jpg",
-                "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+                "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-x-1.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-x-2.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-x-3.jpg"
             ],
             "deleted": true
         },
@@ -48,9 +46,9 @@
             "stock": 36,
             "brand": "Samsung",
             "category": "smartphones",
-            "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+            "thumbnail": "https://cdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s9-.jpg",
             "images": [
-                "https://i.dummyjson.com/data/products/3/1.jpg"
+                "https://cdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s9-1.jpg"
             ],
             "deleted": true
         },
@@ -64,12 +62,11 @@
             "stock": 123,
             "brand": "OPPO",
             "category": "smartphones",
-            "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
+            "thumbnail": "https://cdn2.gsmarena.com/vv/bigpic/oppo-f19.jpg",
             "images": [
-                "https://i.dummyjson.com/data/products/4/1.jpg",
-                "https://i.dummyjson.com/data/products/4/2.jpg",
-                "https://i.dummyjson.com/data/products/4/3.jpg",
-                "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
+                "https://cdn2.gsmarena.com/vv/pics/oppo/oppo-f19-1.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/oppo/oppo-f19-2.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/oppo/oppo-f19-3.jpg"
             ]
         },
         {
@@ -82,11 +79,11 @@
             "stock": 32,
             "brand": "Huawei",
             "category": "smartphones",
-            "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+            "thumbnail": "https://cdn2.gsmarena.com/vv/bigpic/huawei-p30.jpg",
             "images": [
-                "https://i.dummyjson.com/data/products/5/1.jpg",
-                "https://i.dummyjson.com/data/products/5/2.jpg",
-                "https://i.dummyjson.com/data/products/5/3.jpg"
+                "https://cdn2.gsmarena.com/vv/pics/huawei/huawei-p30-1.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/huawei/huawei-p30-2.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/huawei/huawei-p30-3.jpg"
             ]
         },
         {
@@ -99,12 +96,11 @@
             "stock": 83,
             "brand": "Apple",
             "category": "laptops",
-            "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
+            "thumbnail": "https://cdn2.gsmarena.com/vv/bigpic/apple-macbook-pro-2021.jpg",
             "images": [
-                "https://i.dummyjson.com/data/products/6/1.png",
-                "https://i.dummyjson.com/data/products/6/2.jpg",
-                "https://i.dummyjson.com/data/products/6/3.png",
-                "https://i.dummyjson.com/data/products/6/thumbnail.png"
+                "https://cdn2.gsmarena.com/vv/pics/apple/apple-macbook-pro-2021-1.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/apple/apple-macbook-pro-2021-2.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/apple/apple-macbook-pro-2021-3.jpg"
             ]
         },
         {
@@ -117,12 +113,11 @@
             "stock": 50,
             "brand": "Samsung",
             "category": "laptops",
-            "thumbnail": "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
+            "thumbnail": "https://cdn2.gsmarena.com/vv/bigpic/samsung-galaxy-book-s.jpg",
             "images": [
-                "https://i.dummyjson.com/data/products/7/1.jpg",
-                "https://i.dummyjson.com/data/products/7/2.jpg",
-                "https://i.dummyjson.com/data/products/7/3.jpg",
-                "https://i.dummyjson.com/data/products/7/thumbnail.jpg"
+                "https://cdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-book-s-1.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-book-s-2.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-book-s-3.jpg"
             ]
         },
         {
@@ -135,13 +130,12 @@
             "stock": 68,
             "brand": "Microsoft Surface",
             "category": "laptops",
-            "thumbnail": "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
+            "thumbnail": "https://cdn2.gsmarena.com/vv/bigpic/microsoft-surface-laptop-4.jpg",
             "images": [
-                "https://i.dummyjson.com/data/products/8/1.jpg",
-                "https://i.dummyjson.com/data/products/8/2.jpg",
-                "https://i.dummyjson.com/data/products/8/3.jpg",
-                "https://i.dummyjson.com/data/products/8/4.jpg",
-                "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
+                "https://cdn2.gsmarena.com/vv/pics/microsoft/microsoft-surface-laptop-4-1.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/microsoft/microsoft-surface-laptop-4-2.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/microsoft/microsoft-surface-laptop-4-3.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/microsoft/microsoft-surface-laptop-4-4.jpg"
             ]
         },
         {
@@ -154,13 +148,12 @@
             "stock": 96,
             "brand": "Infinix",
             "category": "laptops",
-            "thumbnail": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+            "thumbnail": "https://cdn2.gsmarena.com/vv/bigpic/infinix-inbook-x1.jpg",
             "images": [
-                "https://i.dummyjson.com/data/products/9/1.jpg",
-                "https://i.dummyjson.com/data/products/9/2.png",
-                "https://i.dummyjson.com/data/products/9/3.png",
-                "https://i.dummyjson.com/data/products/9/4.jpg",
-                "https://i.dummyjson.com/data/products/9/thumbnail.jpg"
+                "https://cdn2.gsmarena.com/vv/pics/infinix/infinix-inbook-x1-1.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/infinix/infinix-inbook-x1-2.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/infinix/infinix-inbook-x1-3.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/infinix/infinix-inbook-x1-4.jpg"
             ]
         },
         {
@@ -173,12 +166,11 @@
             "stock": 89,
             "brand": "HP Pavilion",
             "category": "laptops",
-            "thumbnail": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
+            "thumbnail": "https://cdn2.gsmarena.com/vv/bigpic/hp-pavilion-15-dk1056wm.jpg",
             "images": [
-                "https://i.dummyjson.com/data/products/10/1.jpg",
-                "https://i.dummyjson.com/data/products/10/2.jpg",
-                "https://i.dummyjson.com/data/products/10/3.jpg",
-                "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
+                "https://cdn2.gsmarena.com/vv/pics/hp/hp-pavilion-15-dk1056wm-1.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/hp/hp-pavilion-15-dk1056wm-2.jpg",
+                "https://cdn2.gsmarena.com/vv/pics/hp/hp-pavilion-15-dk1056wm-3.jpg"
             ]
         },
         {
