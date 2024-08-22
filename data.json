@@ -2338,5 +2338,46 @@
       "password": "Aaaa@123",
       "id": 2
     }
+  ],
+  "cart": [
+    {
+      "id": 1,
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 993,
+      "discountPercentage": 12.96,
+      "rating": 0,
+      "stock": 0,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://cdn2.gsmarena.com/vv/bigpic/apple-iphone-11.jpg",
+      "images": [
+        "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-1.jpg",
+        "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-2.jpg",
+        "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-3.jpg"
+      ],
+      "deleted": true,
+      "quantity": 3,
+      "user": 1
+    },
+    {
+      "id": 4,
+      "title": "OPPOF19",
+      "description": "OPPO F19 is officially announced on April 2021.",
+      "price": 300,
+      "discountPercentage": 17.91,
+      "rating": 0,
+      "stock": 123,
+      "brand": "OPPO",
+      "category": "smartphones",
+      "thumbnail": "https://cdn2.gsmarena.com/vv/bigpic/oppo-f19.jpg",
+      "images": [
+        "https://cdn2.gsmarena.com/vv/pics/oppo/oppo-f19-1.jpg",
+        "https://cdn2.gsmarena.com/vv/pics/oppo/oppo-f19-2.jpg",
+        "https://cdn2.gsmarena.com/vv/pics/oppo/oppo-f19-3.jpg"
+      ],
+      "quantity": 1,
+      "user": 2
+    }
   ]
 }

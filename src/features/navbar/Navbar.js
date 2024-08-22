@@ -1,6 +1,8 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { selectItems } from '../cart/cartSlice'
 
 const user = {
     name: 'Tom Cook',
@@ -24,6 +26,9 @@ function classNames(...classes) {
 
 
 const Navbar = ({ children }) => {
+
+    const items = useSelector(selectItems)
+
     return (
         <div className="min-h-full">
             <Disclosure as="nav" className="bg-gray-800">
@@ -32,11 +37,11 @@ const Navbar = ({ children }) => {
                         <div className="flex items-center">
                             <div className="flex-shrink-0">
                                 <Link to={'/'}>
-                                <img
-                                    alt="Your Company"
-                                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                                    className="h-8 w-8"
-                                />
+                                    <img
+                                        alt="Your Company"
+                                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                                        className="h-8 w-8"
+                                    />
                                 </Link>
                             </div>
                             <div className="hidden md:block">
@@ -68,9 +73,9 @@ const Navbar = ({ children }) => {
                                         <ShoppingCartIcon aria-hidden="true" className="h-6 w-6" />
                                     </button>
                                 </Link>
-                                <span className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 mb-7 -ml-3 z-10 ring-1 ring-inset ring-red-600/10">
-                                    3
-                                </span>
+                                {items.length > 0 && <span className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 mb-7 -ml-3 z-10 ring-1 ring-inset ring-red-600/10">
+                                    {items.length}
+                                </span>}
 
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="relative ml-3">
@@ -146,9 +151,9 @@ const Navbar = ({ children }) => {
                                     <ShoppingCartIcon aria-hidden="true" className="h-6 w-6" />
                                 </button>
                             </Link>
-                            <span className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 mb-7 -ml-3 z-10 ring-1 ring-inset ring-red-600/10">
-                                3
-                            </span>
+                            {items.length > 0 && <span className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 mb-7 -ml-3 z-10 ring-1 ring-inset ring-red-600/10">
+                                {items.length}
+                            </span>}
                         </div>
                         <div className="mt-3 space-y-1 px-2">
                             {userNavigation.map((item) => (
