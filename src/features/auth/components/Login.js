@@ -40,7 +40,8 @@ export default function Login() {
             onSubmit={handleSubmit((data) => {
               dispatch(checkUserAsync({ email: data.email, password: data.password }))
               console.log(data)
-            })}>
+            })}
+          >
             <div>
               <div className="flex items-center justify-between">
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
