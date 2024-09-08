@@ -121,7 +121,8 @@ export default function Cart() {
               Continue Shopping
             </Link>
           </div>
-        </>}
+        </>
+      }
     </>
   );
 }

@@ -2354,45 +2354,24 @@
       "id": 1
     }
   ],
-  "cart": [
-    {
-      "title": "iPhone 9",
-      "description": "An apple mobile which is nothing like apple",
-      "price": 993,
-      "discountPercentage": 12.96,
-      "rating": 0,
-      "stock": 0,
-      "brand": "Apple",
-      "category": "smartphones",
-      "thumbnail": "https://cdn2.gsmarena.com/vv/bigpic/apple-iphone-11.jpg",
-      "images": [
-        "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-1.jpg",
-        "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-2.jpg",
-        "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-3.jpg"
-      ],
-      "deleted": true,
-      "quantity": 1,
-      "user": 1,
-      "id": 1
-    }
-  ],
+  "cart": [],
   "orders": [
     {
       "items": [
         {
-          "title": "iPhone 9",
-          "description": "An apple mobile which is nothing like apple",
-          "price": 993,
-          "discountPercentage": 12.96,
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 1111,
+          "discountPercentage": 17.94,
           "rating": 0,
-          "stock": 0,
+          "stock": 34,
           "brand": "Apple",
           "category": "smartphones",
-          "thumbnail": "https://cdn2.gsmarena.com/vv/bigpic/apple-iphone-11.jpg",
+          "thumbnail": "https://cdn2.gsmarena.com/vv/bigpic/apple-iphone-x.jpg",
           "images": [
-            "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-1.jpg",
-            "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-2.jpg",
-            "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-3.jpg"
+            "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-x-1.jpg",
+            "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-x-2.jpg",
+            "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-x-3.jpg"
           ],
           "deleted": true,
           "quantity": 1,
@@ -2400,7 +2379,7 @@
           "id": 1
         }
       ],
-      "totalAmount": 993,
+      "totalAmount": 1111,
       "totalItems": 1,
       "user": {
         "email": "test@gmail.com",
@@ -2437,6 +2416,7 @@
         "state": "New York",
         "zipCode": "10019"
       },
+      "status": "pending",
       "id": 1
     }
   ]

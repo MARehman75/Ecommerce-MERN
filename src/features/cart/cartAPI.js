@@ -63,3 +63,18 @@ export const deleteItemFromCart = async (itemId) => {
     throw error;
   }
 }
+
+export const resetCart = async (userId) => {
+  try {
+    const response = await fetchItemsByUserId(userId)
+    const items = response.data;
+    for(let item of items){
+      await deleteItemFromCart(item.id)
+    }
+    return ({status: 'Success'})
+  }
+  catch (error) {
+    console.error('Error reseting cart:', error);
+    throw error;
+  }
+}
