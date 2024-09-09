@@ -25,7 +25,7 @@ export default function Login() {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <Link to={'/'}>
             <img
-              alt="Your Company"
+              alt="Easy Buy"
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
               className="mx-auto h-10 w-auto"
             />
@@ -71,9 +71,9 @@ export default function Login() {
                   Password
                 </label>
                 <div className="text-sm">
-                  <p href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                  <Link to={'/forgot-password'} className="font-semibold text-indigo-600 hover:text-indigo-500">
                     Forgot password?
-                  </p>
+                  </Link>
                 </div>
               </div>
               <div className="mt-2">

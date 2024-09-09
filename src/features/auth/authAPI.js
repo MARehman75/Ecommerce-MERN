@@ -39,3 +39,14 @@ export const checkUser = async (loginInfo) => {
     throw error;
   }
 }
+
+export const signOut = async (userId) => {
+  return ({ data: 'Logged out' })
+  // try {
+  //   return ({ data: 'Logged out' })
+  // }
+  // catch (error) {
+  //   console.error('Error fetching data:', error);
+  //   throw error;
+  // }
+}
