@@ -39,22 +39,3 @@ export const checkUser = async (loginInfo) => {
     throw error;
   }
 }
-
-
-export const updateUser = async (update) => {
-  try {
-    const response = await fetch('http://localhost:8080/users/'+ update.id, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(update)
-    })
-    const data = await response.json()
-    return ({ data })
-  }
-  catch (error) {
-    console.error('Error fetching data:', error);
-    throw error;
-  }
-}

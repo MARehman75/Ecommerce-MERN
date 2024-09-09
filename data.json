@@ -2336,25 +2336,46 @@
           "name": "Muhammad Rehman",
           "email": "rehman.hanif16@gmail.com",
           "phone": "03059215014",
-          "street": "434 A, Jubilee Town Housing Scheme, Lahore",
-          "city": "Lahore",
-          "state": "Punjab",
-          "zipCode": "54000"
+          "street": "432 Park Avenue",
+          "city": "New York",
+          "state": "New York",
+          "zipCode": "10019"
         },
         {
           "name": "Muhammad Rehman",
           "email": "rehman.hanif16@gmail.com",
           "phone": "03059215014",
-          "street": "432 Park Avenue",
-          "city": "New York",
-          "state": "New York",
-          "zipCode": "10019"
+          "street": "434 A, Jubilee Town Housing Scheme, Lahore",
+          "city": "Lahore",
+          "state": "Punjab",
+          "zipCode": "54000"
         }
       ],
       "id": 1
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 1111,
+      "discountPercentage": 17.94,
+      "rating": 0,
+      "stock": 34,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://cdn2.gsmarena.com/vv/bigpic/apple-iphone-x.jpg",
+      "images": [
+        "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-x-1.jpg",
+        "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-x-2.jpg",
+        "https://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-x-3.jpg"
+      ],
+      "deleted": true,
+      "quantity": 1,
+      "user": 1,
+      "id": 1
+    }
+  ],
   "orders": [
     {
       "items": [
@@ -2418,6 +2439,67 @@
       },
       "status": "pending",
       "id": 1
+    },
+    {
+      "items": [
+        {
+          "title": "Samsung Universe 9",
+          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+          "price": 1249,
+          "discountPercentage": 15.46,
+          "rating": 4.09,
+          "stock": 36,
+          "brand": "Samsung",
+          "category": "smartphones",
+          "thumbnail": "https://cdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s9-.jpg",
+          "images": [
+            "https://cdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s9-1.jpg"
+          ],
+          "deleted": true,
+          "quantity": 2,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 2498,
+      "totalItems": 2,
+      "user": {
+        "email": "test@gmail.com",
+        "password": "Asdf@123",
+        "addresses": [
+          {
+            "name": "Muhammad Rehman",
+            "email": "rehman.hanif16@gmail.com",
+            "phone": "03059215014",
+            "street": "434 A, Jubilee Town Housing Scheme, Lahore",
+            "city": "Lahore",
+            "state": "Punjab",
+            "zipCode": "54000"
+          },
+          {
+            "name": "Muhammad Rehman",
+            "email": "rehman.hanif16@gmail.com",
+            "phone": "03059215014",
+            "street": "432 Park Avenue",
+            "city": "New York",
+            "state": "New York",
+            "zipCode": "10019"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Muhammad Rehman",
+        "email": "rehman.hanif16@gmail.com",
+        "phone": "03059215014",
+        "street": "432 Park Avenue",
+        "city": "New York",
+        "state": "New York",
+        "zipCode": "10019"
+      },
+      "status": "pending",
+      "id": 2
     }
   ]
 }
