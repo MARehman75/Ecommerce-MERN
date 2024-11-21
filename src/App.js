@@ -24,6 +24,9 @@ import UserProfilePage from './pages/UserProfilePage';
 import { fetchLoggedInUserAsync } from './features/user/userSlice';
 import Logout from './features/auth/components/Logout';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import ProtectedAdmin from './features/auth/components/ProtectedAdmin';
+import AdminHome from './pages/AdminHome';
+import AdminProductDetailPage from './pages/AdminProductDetailPage';
 
 
 const router = createBrowserRouter([
@@ -32,6 +35,12 @@ const router = createBrowserRouter([
     element: <Protected>
       <Home />
     </Protected>,
+  },
+  {
+    path: "/admin",
+    element: <ProtectedAdmin>
+      <AdminHome />
+    </ProtectedAdmin>,
   },
   {
     path: "/login",
@@ -51,31 +60,39 @@ const router = createBrowserRouter([
   },
   {
     path: "/product-detail/:id",
-    element: <Protected><ProductDetailPage /></Protected>,
+    element: <Protected>
+      <ProductDetailPage />
+    </Protected>,
+  },
+  {
+    path: "/admin/product-detail/:id",
+    element: <ProtectedAdmin>
+      <AdminProductDetailPage />
+    </ProtectedAdmin>,
   },
   {
     path: "/order-success/:id",
-    element: <OrderSuccessPage/>,
+    element: <OrderSuccessPage />,
   },
   {
     path: "/orders",
-    element: <UserOrdersPage/>,
+    element: <UserOrdersPage />,
   },
   {
     path: "/profile",
-    element: <UserProfilePage/>,
+    element: <UserProfilePage />,
   },
   {
     path: "/logout",
-    element: <Logout/>,
+    element: <Logout />,
   },
   {
     path: "/forgot-password",
-    element: <ForgotPasswordPage/>,
+    element: <ForgotPasswordPage />,
   },
   {
     path: "*",
-    element: <PageNotFound/>,
+    element: <PageNotFound />,
   },
 ]);
 
@@ -86,12 +103,12 @@ function App() {
   const user = useSelector(selectLoggedInUser)
 
 
-  useEffect(()=>{
-    if(user){
+  useEffect(() => {
+    if (user) {
       dispatch(fetchItemsByUserIdAsync(user.id))
       dispatch(fetchLoggedInUserAsync(user.id))
     }
-  },[dispatch, user])
+  }, [dispatch, user])
 
   return (
     <div className="App">

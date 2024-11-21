@@ -3,16 +3,19 @@ import { Bars3Icon, ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outl
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { selectItems } from '../cart/cartSlice'
+import myPic from '../../myPic.jpg'
+import { selectLoggedInUser } from '../auth/authSlice'
 
-const user = {
+
+const my = {
     name: 'Tom Cook',
     email: 'tom@example.com',
-    imageUrl:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    imageUrl: myPic,
 }
 const navigation = [
-    { name: 'Dashboard', href: '#', current: true },
-    { name: 'Team', href: '#', current: false },
+    { name: 'Dashboard', link: '#', user: true },
+    { name: 'Team', link: '#', user: true },
+    { name: 'Admin', link: '/admin', admin: true },
 ]
 const userNavigation = [
     { name: 'My Profile', link: '/profile' },
@@ -28,6 +31,7 @@ function classNames(...classes) {
 const Navbar = ({ children }) => {
 
     const items = useSelector(selectItems)
+    const user = useSelector(selectLoggedInUser)
 
     return (
         <div className="min-h-full">
@@ -46,10 +50,10 @@ const Navbar = ({ children }) => {
                             </div>
                             <div className="hidden md:block">
                                 <div className="ml-10 flex items-baseline space-x-4">
-                                    {navigation.map((item) => (
-                                        <a
+                                    {navigation.map((item) => item[user.role] ? (
+                                        <Link
                                             key={item.name}
-                                            href={item.href}
+                                            to={item.link}
                                             aria-current={item.current ? 'page' : undefined}
                                             className={classNames(
                                                 item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
@@ -57,8 +61,9 @@ const Navbar = ({ children }) => {
                                             )}
                                         >
                                             {item.name}
-                                        </a>
-                                    ))}
+                                        </Link>
+                                    ) : null
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -83,7 +88,7 @@ const Navbar = ({ children }) => {
                                         <MenuButton className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                             <span className="absolute -inset-1.5" />
                                             <span className="sr-only">Open user menu</span>
-                                            <img alt="" src={user.imageUrl} className="h-8 w-8 rounded-full" />
+                                            <img alt="" src={my.imageUrl} className="h-8 w-8 rounded-full" />
                                         </MenuButton>
                                     </div>
                                     <MenuItems
@@ -136,12 +141,12 @@ const Navbar = ({ children }) => {
                     <div className="border-t border-gray-700 pb-3 pt-4">
                         <div className="flex items-center px-5">
                             <div className="flex-shrink-0">
-                                <img alt="" src={user.imageUrl} className="h-10 w-10 rounded-full" />
+                                <img alt="" src={my.imageUrl} className="h-10 w-10 rounded-full" />
                             </div>
-                            <div className="ml-3">
-                                <div className="text-base font-medium leading-none text-white">{user.name}</div>
-                                <div className="text-sm font-medium leading-none text-gray-400">{user.email}</div>
-                            </div>
+                            {/* <div className="ml-3">
+                                <div className="text-base font-medium leading-none text-white">{my.name}</div>
+                                <div className="text-sm font-medium leading-none text-gray-400">{my.email}</div>
+                            </div> */}
                             <Link to={'/cart'}>
                                 <button
                                     type="button"

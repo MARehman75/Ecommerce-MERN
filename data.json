@@ -2331,6 +2331,7 @@
     {
       "email": "test@gmail.com",
       "password": "Asdf@123",
+      "role": "user",
       "addresses": [
         {
           "name": "Muhammad Rehman",
@@ -2352,6 +2353,13 @@
         }
       ],
       "id": 1
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "Asdf@123",
+      "addresses": [],
+      "role": "admin",
+      "id": 2
     }
   ],
   "cart": [
